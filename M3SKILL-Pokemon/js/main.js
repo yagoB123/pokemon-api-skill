@@ -19,23 +19,22 @@ document.getElementById("js--catch-button").onclick = function() {
     }
 };
 
-
-let Show = "One piece";
-fetch("https://api.tvmaze.com/search/shows?q=" + Show)
+let card = "Blue-Eyes White Dragon";
+fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + card)
     .then(response => response.json())
     .then(realData => {
-        document.getElementById("js--search-title").innerText = realData[0].show.name;
-        document.getElementById("js--search-text").innerText = realData[0].show.summary.replace(/<\/?p>/g, '');
+        document.getElementById("js--search-title").innerText = realData.data[0].cardname;
+        document.getElementById("js--search-text").innerText = realData.data[0].desc;
     });
 
-
-document.getElementById("js--input").onkeyup = function(event) {
+document.getElementById("js--input").addEventListener("keyup", (event) => { 
     if (event.keyCode === 13) { 
-        fetch("https://api.agify.io?name=" + this.value)
+        fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + event.target.value)
             .then(response => response.json())
             .then(realData => {
-                document.getElementById("js--name").innerText = this.value + " is " + realData.age + " years old";
-                this.style.display = 'none'; 
+                document.getElementById("js--name").innerText = event.target.value + " has " + realData.data[0].atk + " attack";
+                event.target.style.display = 'none'; 
             });
     }
-};
+});
+

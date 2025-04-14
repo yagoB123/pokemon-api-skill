@@ -20,8 +20,8 @@ html {
 body {
     font-size: 2rem;
     font-family: 'GTVCS';
-    background: #B99776; 
-    color: #664229; 
+    background: #29c5c0; 
+    color: #000000; 
     padding: 4rem;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .card {
-    background: #E5D3B3; 
+    background: #ffffff; 
     border-radius: 1rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     padding: 4rem;
